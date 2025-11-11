@@ -1,5 +1,5 @@
 // API Configuration
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:5268/api';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'https://municipality-api-net-csharp.onrender.com';
 
 // Updated types for simplified API (no authentication)
 export interface Message {
