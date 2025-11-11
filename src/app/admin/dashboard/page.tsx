@@ -114,7 +114,7 @@ export default function AdminDashboard() {
 
       // Fetch issues
       const issuesResponse = await fetch(
-        `${process.env.NEXT_PUBLIC_API_BASE_URL}/Admin/issues?sortBy=${sortBy}&sortOrder=${sortOrder}&_t=${timestamp}`,
+        `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/Admin/issues?sortBy=${sortBy}&sortOrder=${sortOrder}&_t=${timestamp}`,
         { 
           method: 'GET',
           headers,
@@ -144,7 +144,7 @@ export default function AdminDashboard() {
 
       // Fetch stats
       const statsResponse = await fetch(
-        `${process.env.NEXT_PUBLIC_API_BASE_URL}/Admin/stats?_t=${timestamp}`,
+        `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/Admin/stats?_t=${timestamp}`,
         { 
           method: 'GET',
           headers,
@@ -184,7 +184,7 @@ export default function AdminDashboard() {
       console.log('🔄 Updating issue:', selectedIssue.id, 'to status:', newStatus)
       
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_BASE_URL}/Admin/issues/${selectedIssue.id}`,
+        `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/Admin/issues/${selectedIssue.id}`,
         {
           method: 'PUT',
           headers: {
