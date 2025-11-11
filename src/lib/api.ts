@@ -1,5 +1,10 @@
 // API Configuration
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'https://municipality-api-net-csharp.onrender.com';
+const rawEnvValue = (globalThis as any)?.process?.env?.NEXT_PUBLIC_API_BASE_URL as string | undefined;
+const rawApiBase = rawEnvValue || 'https://municipality-api-net-csharp.onrender.com/api';
+let API_BASE_URL = rawApiBase.trim().replace(/\/+$/, '');
+if (!API_BASE_URL.toLowerCase().endsWith('/api')) {
+  API_BASE_URL = `${API_BASE_URL}/api`;
+}
 
 // Updated types for simplified API (no authentication)
 export interface Message {
